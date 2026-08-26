@@ -1,0 +1,2 @@
+// This file is intentionally stored under src so Liara's Node build context includes the Prisma schema.
+// The canonical copy remains at prisma/schema.prisma.
