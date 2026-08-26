@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout target repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
       - name: Checkout source backend
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           repository: tajvidimaryam7899-del/grokrepositorybeautijoo
           ref: main
@@ -34,12 +34,16 @@ jobs:
           rm -rf source
           test -f package.json
           test -f liara.json
+          test -f nest-cli.json
+          test -f tsconfig.json
+          test -f tsconfig.build.json
           test -d src
           test -f prisma/schema.prisma
+          test -f prisma/seed.ts
           test -d prisma/migrations
-          touch .backend-import-complete
+          rm -rf .github
 
-      - name: Commit imported backend
+      - name: Commit exact imported backend
         shell: bash
         run: |
           set -euo pipefail
